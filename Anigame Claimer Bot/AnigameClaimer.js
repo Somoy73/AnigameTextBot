@@ -11,9 +11,10 @@
 //Global variables
 var claimURL = "https://drive.google.com/uc?export=download&id=13kw9_YTU_7HEgYjGKdO3PVl_ZFY7p1Q-";
 var verifyURL = "https://drive.google.com/uc?export=download&id=1yoI-nQ9dZJuzx2y6GbCmRojo2fjdRXgg";
+var botFlag, interval = null;
 //Create a button to Initialize Bot Code
 function buttonCreate(){
-    var botFlag = false;
+    botFlag = false;
     var b = document.createElement('button');
     b.innerHTML = 'Start Bot';
     b.className = 'b1';
@@ -31,6 +32,7 @@ function buttonCreate(){
             par = child.parentNode;
             par.removeChild(child);
             body.appendChild(b);
+            searchLoop();
         }else{
             b.innerHTML = 'Start Bot';
             botFlag = false;
@@ -38,15 +40,22 @@ function buttonCreate(){
             par = child.parentNode;
             par.removeChild(child);
             body.appendChild(b);
-        }
-        while(botFlag){
-            claimSearch();
-            verifySearch();
+            stopSearchLoop();
         }
     });
 }
 buttonCreate();
 
+function searchLoop(){
+    interval = setInterval(function(){
+        //console.log('gees');
+        claimSearch();
+        verifySearch();
+    },1);
+}
+function stopSearchLoop(){
+    clearInterval(interval);
+}
 //Search for claim text
 function claimSearch(){
     var content = document.body.textContent || document.body.innerText;
@@ -54,7 +63,7 @@ function claimSearch(){
     if(hasText){
         createClaimFile();
         //delay 3 seconds
-        setTimeout(function(){},5000);
+        setTimeout(function(){},6000);
     }else{
         //delay 3 seconds;
         setTimeout(function(){},3000);
@@ -65,10 +74,10 @@ function claimSearch(){
 function verifySearch(){
     var content = document.body.textContent || document.body.innerText;
     var hasText = content.indexOf("Captcha Verification") !== -1;
-    console.log(hasText);
+    //console.log(hasText);
     if(hasText){
         createVerifyFile();
-        setTimeout(function(){},5000);
+        setTimeout(function(){},6000);
     }else{
         setTimeout(function(){},3000);
     }
