@@ -1,4 +1,7 @@
+
+
 # AnigameTextBot
+#Disclaimer: The Project has been licensed under 'Creative Commons Zero v1.0 Universal'
 
 This bot allows you to randomly type in messages while faking actual Key Presses, bypassing discord's security measures as well as other bot detection tools.
 The bot can automatically generate ".claim" command to claim cards when Anigame cards appear. 
