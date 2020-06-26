@@ -49,7 +49,7 @@ buttonCreate();
 function searchLoop(){
     interval = setInterval(function(){
         //console.log('gees');
-        claimSearch();
+        claimSearch2();
         verifySearch();
     },1);
 }
@@ -68,16 +68,42 @@ function claimSearch(){
         //delay 3 seconds;
         setTimeout(function(){},3000);
     }
-
+}
+//Search for claim text Better Ver.
+function claimSearch2(){
+    var flag = false;
+    for(var i=45;i<=50; ++i){
+        var idd = "messages-"+i;
+        var elem = document.getElementById(idd);
+        var child;
+        if(elem !=null){
+            child = elem.getElementsByTagName('em');
+        }
+        //console.log(child);
+        if(child != undefined || child != null){
+            flag = true;
+            break;
+        }
+    }
+    if(flag){
+        createClaimFile();
+        //delay 3 seconds
+        setTimeout(function(){},6000);
+    }else{
+        setTimeout(function(){},3000);
+    }
 }
 
+//Captcha Alert!
 function verifySearch(){
     var content = document.body.textContent || document.body.innerText;
     var hasText = content.indexOf("Captcha Verification") !== -1;
     //console.log(hasText);
     if(hasText){
         createVerifyFile();
-        setTimeout(function(){},6000);
+        alert('Verification Captcha Detected');
+        alert('Please type in at least 50 more messages to preven alerts from reoccuring');
+        setTimeout(function(){},30000);
     }else{
         setTimeout(function(){},3000);
     }
