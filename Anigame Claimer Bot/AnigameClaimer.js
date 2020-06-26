@@ -105,7 +105,7 @@ function verifySearch(){
     if(hasText){
         createVerifyFile();
         alert('Verification Captcha Detected');
-        alert('Please type in at least 50 more messages to preven alerts from reoccuring');
+        alert('Please type in at least 50 more messages to prevent alerts from reoccuring');
         setTimeout(function(){},10000);
         window.location.replace("discord.com");
         document.getElementById('b1').click();
