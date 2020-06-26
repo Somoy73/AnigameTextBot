@@ -49,8 +49,8 @@ buttonCreate();
 function searchLoop(){
     interval = setInterval(function(){
         //console.log('gees');
-        claimSearch2();
         verifySearch();
+        claimSearch2();
     },1);
 }
 function stopSearchLoop(){
@@ -72,17 +72,20 @@ function claimSearch(){
 //Search for claim text Better Ver.
 function claimSearch2(){
     var flag = false;
-    for(var i=45;i<=50; ++i){
+    for(var i=44;i<=50; ++i){
         var idd = "messages-"+i;
         var elem = document.getElementById(idd);
         var child;
         if(elem !=null){
-            child = elem.getElementsByTagName('em');
+            child = elem.getElementsByTagName('em')[0];
         }
-        //console.log(child);
+        //console.log(child+"\n");
         if(child != undefined || child != null){
-            flag = true;
-            break;
+            if(child.innerText=="A wild anime card appears!"){
+                flag = true;
+                break;
+            }
+
         }
     }
     if(flag){
@@ -103,7 +106,9 @@ function verifySearch(){
         createVerifyFile();
         alert('Verification Captcha Detected');
         alert('Please type in at least 50 more messages to preven alerts from reoccuring');
-        setTimeout(function(){},30000);
+        setTimeout(function(){},10000);
+        window.location.replace("discord.com");
+        document.getElementById('b1').click();
     }else{
         setTimeout(function(){},3000);
     }
