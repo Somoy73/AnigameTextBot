@@ -80,7 +80,7 @@ function claimSearch2(){
             child = elem.getElementsByTagName('em')[0];
         }
         //console.log(child+"\n");
-        if(child != undefined || child != null){
+        if(child != undefined && child != null){
             if(child.innerText=="A wild anime card appears!"){
                 flag = true;
                 break;
