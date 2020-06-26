@@ -17,6 +17,7 @@ import java.util.logging.Logger;
 /**
  *
  * @author Somoy_Subandhu
+ * @project_name AnigameTextBot
  */
 public class Main {
     private static final String ALPHA_NUMERIC_STRING = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
@@ -50,6 +51,30 @@ public class Main {
         rbt.keyPress(KeyEvent.VK_ENTER);
         rbt.keyRelease(KeyEvent.VK_ENTER);
         Thread.sleep((long)(1000.0*timeDelay));    
+    }
+    private static boolean verifyCheck(){
+        if(new File("C:/Users/Downloads/verify").exists()){
+            File f = new File("C:/Users/Downloads/verify");
+            f.delete();
+            return true;
+        }if(new File("./verify").exists()){
+            File f = new File("./verify");
+            f.delete();
+            return true;
+        }
+        return false;
+    }
+    private static boolean claimCheck(){
+        if(new File("C:/Users/Downloads/claim").exists()){
+            File f = new File("C:/Users/Downloads/verify");
+            f.delete();
+            return true;
+        }if(new File("./claim").exists()){
+            File f = new File("./claim");
+            f.delete();
+            return true;
+        }
+        return false;
     }
     public static void main(String[] args) throws Exception{
         Scanner sc = new Scanner(System.in);
@@ -85,9 +110,11 @@ public class Main {
                 textLine = randomAlphaNumeric(count);
                 x--;
                 cnt++;
-                if(cnt%20 == 0){
-                    cnt = 0;
-                    textLine = ".claim";
+                if(claimCheck()){
+                        textLine = ".claim";
+                }else if(verifyCheck()){
+                    System.out.println("Captcha Occured");
+                    break;
                 }
                 stringCopy(textLine,timeDelay);
             }
@@ -96,9 +123,12 @@ public class Main {
                 while( fileFlag && ((textLine = br.readLine()) != null) && x!=0){               
                     x--;
                     cnt++;
-                    if(cnt%20 == 0){
-                        cnt = 0;
+                    if(claimCheck()){
                         textLine = ".claim";
+                    }else if(verifyCheck()){
+                        System.out.println("Captcha Occured");
+                        x = 0;
+                        break;
                     }
                     stringCopy(textLine,timeDelay);
                 }
