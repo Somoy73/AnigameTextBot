@@ -104,9 +104,10 @@ function verifySearch(){
     //console.log(hasText);
     if(hasText){
         createVerifyFile();
-        alert('Verification Captcha Detected .Please type in at least 50 more messages to prevent alerts from reoccuring');
-        window.location.replace("discord.com");
-        window.location.replace("discord.com");
+        //The alert is turned off because it causes verify to fail
+        //alert('Verification Captcha Detected .Please type in at least 50 more messages to prevent alerts from reoccuring');
+        //window.location.replace("discord.com");
+        //window.location.replace("discord.com");
         document.getElementById('b1').click();
     }else{
         setTimeout(function(){},3000);
