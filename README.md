@@ -2,7 +2,7 @@
 
 # AnigameTextBot
 <b>#Disclaimer: The Project has been licensed under 'Creative Commons Zero v1.0 Universal'</b><br/>
-<b>#Author_Desclaimer: The bot has been created for fun and educational purpose. The author will not be held liable for any damage that may occur.</b>
+<b>#Author_Desclaimer: The bot has been created for fun and educational purpose. The author will not be held liable for any harm or damage that may occur.</b>
 
 The bot mainly consists of two parts.
 1. The AnigameClaimer.js features Discord Verify detection and warning features as well as Sending Claim information to the texter bot.
