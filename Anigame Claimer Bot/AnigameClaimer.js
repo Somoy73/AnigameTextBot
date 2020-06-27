@@ -106,6 +106,7 @@ function verifySearch(){
         createVerifyFile();
         alert('Verification Captcha Detected .Please type in at least 50 more messages to prevent alerts from reoccuring');
         window.location.replace("discord.com");
+        window.location.replace("discord.com");
         document.getElementById('b1').click();
     }else{
         setTimeout(function(){},3000);
@@ -118,4 +119,3 @@ function createClaimFile(){
 function createVerifyFile(){
     window.location.replace(verifyURL);
 }
-
