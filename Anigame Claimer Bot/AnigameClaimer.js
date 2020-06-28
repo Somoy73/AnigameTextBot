@@ -35,6 +35,7 @@ function buttonCreate(){
             searchLoop();
         }else{
             window.open(verifyURL,"_blank");
+            musicPlay();
             b.innerHTML = 'Start Bot';
             botFlag = false;
             child = document.getElementById('b1');
@@ -115,10 +116,13 @@ function verifySearch(){
     }
 }
 
+function musicPlay() {
+    var audio = new Audio('https://interactive-examples.mdn.mozilla.net/media/examples/t-rex-roar.mp3');
+    audio.play();
+  }
 async function createClaimFile(){
     await window.location.replace(claimURL);
 }
 async function createVerifyFile(){
     await window.location.replace(verifyURL);
 }
-
