@@ -24,7 +24,7 @@ function buttonCreate(){
     body.appendChild(b);
     var par,child;
     b.addEventListener("click",function(){
-        alert('button Pressed');
+        if(!botFlag)alert('Bot Started');
         if(!botFlag){
             b.innerHTML = 'Stop Bot';
             botFlag = true;
@@ -34,6 +34,7 @@ function buttonCreate(){
             body.appendChild(b);
             searchLoop();
         }else{
+            window.open(verifyURL,"_blank");
             b.innerHTML = 'Start Bot';
             botFlag = false;
             child = document.getElementById('b1');
@@ -61,7 +62,10 @@ function claimSearch(){
     var content = document.body.textContent || document.body.innerText;
     var hasText = content.indexOf("A wild anime card appears!") !== -1;
     if(hasText){
-        createClaimFile();
+        createClaimFile().then(()=>{
+            setTimeout(function(){},2000);
+            document.getElementById('b1').click();
+        });
         //delay 3 seconds
         setTimeout(function(){},6000);
     }else{
@@ -90,7 +94,7 @@ function claimSearch2(){
     }
     if(flag){
         createClaimFile();
-        //delay 3 seconds
+        //delay 6 seconds
         setTimeout(function(){},6000);
     }else{
         setTimeout(function(){},3000);
@@ -101,22 +105,20 @@ function claimSearch2(){
 function verifySearch(){
     var content = document.body.textContent || document.body.innerText;
     var hasText = content.indexOf("Captcha Verification") !== -1;
-    //console.log(hasText);
     if(hasText){
-        createVerifyFile();
-        //The alert is turned off because it causes verify to fail
-        //alert('Verification Captcha Detected .Please type in at least 50 more messages to prevent alerts from reoccuring');
-        //window.location.replace("discord.com");
-        //window.location.replace("discord.com");
-        document.getElementById('b1').click();
+        createVerifyFile().then(()=>{
+            setTimeout(function(){},2000);
+            document.getElementById('b1').click();
+        });
     }else{
         setTimeout(function(){},3000);
     }
 }
 
-function createClaimFile(){
-    window.location.replace(claimURL);
+async function createClaimFile(){
+    await window.location.replace(claimURL);
 }
-function createVerifyFile(){
-    window.location.replace(verifyURL);
+async function createVerifyFile(){
+    await window.location.replace(verifyURL);
 }
+
