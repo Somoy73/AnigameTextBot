@@ -3,7 +3,7 @@
 // @namespace    http://tampermonkey.net/
 // @version      0.1
 // @description  Auto Claim and detect verification in Anigame
-// @author       Somoy
+// @author       Somoy73
 // @match        *discord.com/channels/*
 // @grant        none
 // ==/UserScript==
