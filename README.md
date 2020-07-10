@@ -1,7 +1,7 @@
 
 
 # AnigameTextBot
-<img src="https://img.shields.io/badge/Author-Somoy%20Subandhu-orange"></img><img src="https://img.shields.io/github/license/Somoy73/AnigameTextBot"></img><br/>
+<img src="https://img.shields.io/badge/Author-Somoy%20Subandhu-orange"></img><br/><img src="https://img.shields.io/github/license/Somoy73/AnigameTextBot"></img><br/>
 <b>#Disclaimer: The Project has been licensed under 'Creative Commons Zero v1.0 Universal'</b><br/>
 <b>#Author_Desclaimer: The bot has been created for fun and educational purpose. The author will not be held liable for any harm or damage that may occur.</b>
 
