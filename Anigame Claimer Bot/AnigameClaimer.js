@@ -35,7 +35,6 @@ function buttonCreate(){
             searchLoop();
         }else{
             window.open(verifyURL,"_blank");
-            musicPlay();
             b.innerHTML = 'Start Bot';
             botFlag = false;
             child = document.getElementById('b1');
@@ -50,7 +49,6 @@ buttonCreate();
 
 function searchLoop(){
     interval = setInterval(function(){
-        //console.log('gees');
         verifySearch();
         claimSearch2();
     },1);
@@ -58,6 +56,7 @@ function searchLoop(){
 function stopSearchLoop(){
     clearInterval(interval);
 }
+/*
 //Search for claim text
 function claimSearch(){
     var content = document.body.textContent || document.body.innerText;
@@ -74,6 +73,7 @@ function claimSearch(){
         setTimeout(function(){},3000);
     }
 }
+*/
 //Search for claim text Better Ver.
 function claimSearch2(){
     var flag = false;
@@ -88,6 +88,7 @@ function claimSearch2(){
         if(child != undefined && child != null){
             if(child.innerText=="A wild anime card appears!"){
                 flag = true;
+                console.log("Card found!");
                 break;
             }
 
@@ -115,14 +116,9 @@ function verifySearch(){
         setTimeout(function(){},3000);
     }
 }
-
-function musicPlay() {
-    var audio = new Audio('https://interactive-examples.mdn.mozilla.net/media/examples/t-rex-roar.mp3');
-    audio.play();
-  }
-async function createClaimFile(){
-    await window.location.replace(claimURL);
+function createClaimFile(){
+    window.location.replace(claimURL);
 }
-async function createVerifyFile(){
-    await window.location.replace(verifyURL);
+function createVerifyFile(){
+    window.location.replace(verifyURL);
 }
